@@ -1,6 +1,6 @@
 <?php
 
-namespace DivineOmega\JsonKeyValueStore;
+namespace JordJD\JsonKeyValueStore;
 
 class JsonKeyValueStore
 {

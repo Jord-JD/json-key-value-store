@@ -15,17 +15,17 @@
     "ext-json": "*"
   },
   "require-dev": {
-    "phpunit/phpunit": "^7.0 || ^8.0",
+    "phpunit/phpunit": "^9.6",
     "php-coveralls/php-coveralls": "^2.0"
   },
   "autoload": {
     "psr-4": {
-      "DivineOmega\\JsonKeyValueStore\\": "./src/"
+      "JordJD\\JsonKeyValueStore\\": "./src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "DivineOmega\\JsonKeyValueStore\\Tests\\": "./tests/Unit"
+      "JordJD\\JsonKeyValueStore\\Tests\\": "./tests/Unit"
     }
   },
   "replace": {
@@ -33,7 +33,7 @@
   },
   "extra": {
     "branch-alias": {
-      "dev-master": "3.0-dev"
+      "dev-master": "4.0-dev"
     }
   }
 }

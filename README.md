@@ -23,7 +23,7 @@ Using the JSON Key Value Store is designed to be super simple.
 Here is a basic usage example:
 
 ```php
-use DivineOmega\JsonKeyValueStore\JsonKeyValueStore;
+use JordJD\JsonKeyValueStore\JsonKeyValueStore;
 
 $store = new JsonKeyValueStore('store.json.gz');
 

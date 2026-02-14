@@ -1,8 +1,8 @@
 <?php
 
-namespace DivineOmega\JsonKeyValueStore\Tests;
+namespace JordJD\JsonKeyValueStore\Tests;
 
-use DivineOmega\JsonKeyValueStore\JsonKeyValueStore;
+use JordJD\JsonKeyValueStore\JsonKeyValueStore;
 use PHPUnit\Framework\TestCase;
 
 final class BasicUsageTest extends TestCase

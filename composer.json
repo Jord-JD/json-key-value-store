@@ -1,31 +1,39 @@
 {
-    "name": "divineomega/json-key-value-store",
-    "description": "A simple JSON based key value store",
-    "type": "library",
-    "license": "LGPL-3.0-only",
-    "authors": [
-        {
-            "name": "Jordan Hall",
-            "email": "jordan@hall05.co.uk"
-        }
-    ],
-    "require": {
-        "php": ">=7.1",
-        "ext-zlib": "*",
-        "ext-json": "*"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "^7.0 || ^8.0",
-        "php-coveralls/php-coveralls": "^2.0"
-    },
-    "autoload": {
-        "psr-4": {
-            "DivineOmega\\JsonKeyValueStore\\": "./src/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "DivineOmega\\JsonKeyValueStore\\Tests\\": "./tests/Unit"
-        }
+  "name": "jord-jd/json-key-value-store",
+  "description": "A simple JSON based key value store",
+  "type": "library",
+  "license": "LGPL-3.0-only",
+  "authors": [
+    {
+      "name": "Jordan Hall",
+      "email": "jordan@hall05.co.uk"
     }
+  ],
+  "require": {
+    "php": ">=7.1",
+    "ext-zlib": "*",
+    "ext-json": "*"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^7.0 || ^8.0",
+    "php-coveralls/php-coveralls": "^2.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "DivineOmega\\JsonKeyValueStore\\": "./src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "DivineOmega\\JsonKeyValueStore\\Tests\\": "./tests/Unit"
+    }
+  },
+  "replace": {
+    "jord-jd/json-key-value-store": "self.version"
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "2.0-dev"
+    }
+  }
 }

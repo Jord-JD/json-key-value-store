@@ -29,11 +29,11 @@
     }
   },
   "replace": {
-    "jord-jd/json-key-value-store": "self.version"
+    "divineomega/json-key-value-store": "self.version"
   },
   "extra": {
     "branch-alias": {
-      "dev-master": "2.0-dev"
+      "dev-master": "3.0-dev"
     }
   }
 }

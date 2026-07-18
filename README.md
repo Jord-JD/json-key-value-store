@@ -1,7 +1,6 @@
 # JSON Key Value Store
 
-[![Build Status](https://travis-ci.org/Jord-JD/json-key-value-store.svg?branch=master)](https://travis-ci.org/Jord-JD/json-key-value-store)
-[![Coverage Status](https://coveralls.io/repos/github/Jord-JD/json-key-value-store/badge.svg?branch=master)](https://coveralls.io/github/Jord-JD/json-key-value-store?branch=master)
+[![Tests](https://github.com/Jord-JD/json-key-value-store/actions/workflows/tests.yml/badge.svg)](https://github.com/Jord-JD/json-key-value-store/actions/workflows/tests.yml)
 
 A simple JSON based key value store.
 

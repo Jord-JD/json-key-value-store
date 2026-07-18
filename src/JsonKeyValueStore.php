@@ -49,12 +49,17 @@ class JsonKeyValueStore
 
         $fh = fopen($this->file, 'r+');
 
+        if ($fh === false) {
+            throw new \Exception('Could not open store for reading.');
+        }
+
         if (flock($fh, LOCK_SH)) {
-            $rawContent = fread($fh, filesize($this->file));
+            $rawContent = stream_get_contents($fh);
             fflush($fh);
             flock($fh, LOCK_UN);
             fclose($fh);
         } else {
+            fclose($fh);
             throw new \Exception('Could not acquire shared file lock.');
         }
 
@@ -74,13 +79,35 @@ class JsonKeyValueStore
      */
     private function save()
     {
-        $encodedContent = gzencode(json_encode($this->content));
+        $json = json_encode($this->content);
+
+        if ($json === false) {
+            throw new \Exception('Could not encode store content as JSON.');
+        }
+
+        $encodedContent = gzencode($json);
+
+        if ($encodedContent === false) {
+            throw new \Exception('Could not compress store content.');
+        }
 
         if (!file_exists($this->file)) {
-            touch($this->file);
+            $directory = dirname($this->file);
+
+            if (!is_dir($directory)) {
+                throw new \Exception('Store directory does not exist.');
+            }
+
+            if (!touch($this->file)) {
+                throw new \Exception('Could not create store file.');
+            }
         }
 
         $fh = fopen($this->file, 'r+');
+
+        if ($fh === false) {
+            throw new \Exception('Could not open store for writing.');
+        }
 
         if (flock($fh, LOCK_EX)) {
             ftruncate($fh, 0);
@@ -89,6 +116,7 @@ class JsonKeyValueStore
             flock($fh, LOCK_UN);
             fclose($fh);
         } else {
+            fclose($fh);
             throw new \Exception('Could not acquire exclusive file lock.');
         }
     }
@@ -141,5 +169,6 @@ class JsonKeyValueStore
     public function delete($key)
     {
         unset($this->content->$key);
+        $this->save();
     }
 }

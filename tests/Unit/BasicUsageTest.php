@@ -128,10 +128,12 @@ final class BasicUsageTest extends TestCase
     public function testDeletion()
     {
         $store = $this->createPopulatedStore();
+        $file = $store->getFile();
 
         $store->delete('testString');
-        $value = $store->get('testString');
+        $reopenedStore = new JsonKeyValueStore($file);
 
-        return $this->assertNull($value);
+        $this->assertNull($reopenedStore->get('testString'));
+        $this->assertStringNotContainsString('testString', gzdecode(file_get_contents($file)));
     }
 }
